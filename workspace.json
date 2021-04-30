@@ -1,10 +1,25 @@
 {
-  
-  
   "version": 2,
-  
-  "projects": {},
-  "cli": {
-    "defaultCollection": "@nrwl/workspace"
-  }
+  "projects": {
+    "operators": {
+      "root": "libs/operators",
+      "sourceRoot": "libs/operators/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": { "lintFilePatterns": ["libs/operators/**/*.ts"] }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/operators"],
+          "options": {
+            "jestConfig": "libs/operators/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    }
+  },
+  "cli": { "defaultCollection": "@nrwl/workspace" }
 }
